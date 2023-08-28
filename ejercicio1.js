@@ -58,20 +58,22 @@ const flujoAnual = [
     mes: "diciembre",
     ingreso: 2457,
     egreso: 1867
-}
-]
-let totalIngresos = 0, totalEgresos = 0;
+}];
 
-flujoAnual.forEach(item => {
-    totalIngresos += item.ingreso;
-    totalEgresos += item.egreso;
-})
+function determinarSiHayGanancia(flujoAnual){
 
-if(!totalIngresos>=totalEgresos){
-    alert("Genera pérdida")
-} else {
-    alert("No genera pérdida")
+    let totalIngresos = 0, totalEgresos = 0;
+
+    flujoAnual.forEach(item => { totalIngresos += item.ingreso; totalEgresos += item.egreso;})
+
+    if(totalIngresos>totalEgresos){
+        return 1;
+    } else if (totalIngresos == totalEgresos){
+        return 0;
+    } else{
+        return -1;
+    }
+    
 };
-debugger
 
-
+console.log(determinarSiHayGanancia(flujoAnual));

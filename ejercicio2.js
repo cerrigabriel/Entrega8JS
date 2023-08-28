@@ -26,17 +26,23 @@ function calcularInteresGanado(capital, plazo, tasa){
 
 let alternativasCredito = [];
 
-for (let i = 0; i < ofertaCreditos.length; i++) {
-    let nombre = ofertaCreditos[i].nombre; 
-    let capital = ofertaCreditos[i].capital; 
-    let plazo = ofertaCreditos[i].plazoEnDias;
-    let tasa = ofertaCreditos[i].porcentajeTasa;
-    
-    let interesGanado = calcularInteresGanado(capital, plazo, tasa); 
-    alternativasCredito.push({nombre, interesGanado}); 
-};
 
-console.log(alternativasCredito);
+
+function analizarAlternativas(ofertaCreditos){
+    for (let i = 0; i < ofertaCreditos.length; i++) {
+        let nombre = ofertaCreditos[i].nombre; 
+        let capital = ofertaCreditos[i].capital; 
+        let plazo = ofertaCreditos[i].plazoEnDias;
+        let tasa = ofertaCreditos[i].porcentajeTasa;
+        
+        let interesGanado = calcularInteresGanado(capital, plazo, tasa); 
+        alternativasCredito.push({nombre, interesGanado}); 
+    }
+
+    return alternativasCredito;
+}
+
+console.log(analizarAlternativas(ofertaCreditos));
 
 
 
